@@ -140,9 +140,7 @@ if __name__ == "__main__":
 	if args.output:
 		logger.info("--------------------Output Model--------------------")
 		model.save(args.output + '.model')
-		model.save_word2vec_format(args.output + '.model.bin', binary=True)
-		model.save_word2vec_format(args.output + '.model.txt', binary=False)
-
+		
 	if args.question:
 		logger.info("--------------------Validation--------------------")
 		model.accuracy(args.question)

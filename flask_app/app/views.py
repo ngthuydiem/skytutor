@@ -12,9 +12,9 @@ def ask():
 	return render_template("ask.html")
 
 from gensim.models import word2vec
-model_name = "300features_40minwords_10context"
-model = word2vec.Word2Vec.load(model_name)
-#model = word2vec.Word2Vec.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True)
+model = word2vec.Word2Vec.load('/home/ubuntu/skytutor/word2vec/models/enwiki-skip-gram-negative-sampling.model')
+#model = word2vec.Word2Vec.load('models/300features_40minwords_10context')
+#model = word2vec.Word2Vec.load_word2vec_format('models/GoogleNews-vectors-negative300.bin', binary=True)
 
 @app.route('/reply', methods=['POST','GET'])
 def ask_gensim():

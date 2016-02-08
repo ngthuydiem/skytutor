@@ -13,7 +13,7 @@ for algo in "${algos[@]}"
 do
 	for opt in "${opts[@]}"
 	do
-		input="text7"
+		input="enwiki"
 		echo "$input" "$algo" "$opt"
 		CMD="python word2vec_gensim.py --input_file $input --output_file models/$input-$algo-$opt --nthreads 16 --training_algorithm $algo --optimization_technique $opt"
 		/usr/bin/time -f "Runtime:\t%E minutes\nCPU percentage:\t%P\nMax memory:\t%M KB" $CMD >>$LOG_FILE 2>&1

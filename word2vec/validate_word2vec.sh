@@ -6,14 +6,14 @@
 
 LOG_FILE="log_word2vec_validate.txt"
 
-declare -a algos=("skip-gram" "cbow")
-declare -a opts=("negative-sampling" "hierarchical-softmax")
+declare -a algos=("skip-gram") # "cbow")
+declare -a opts=("negative-sampling") # "hierarchical-softmax")
 
 for algo in "${algos[@]}"
 do
 	for opt in "${opts[@]}"
 	do
-		input="text7"
+		input="enwiki"
 		echo "$input" "$algo" "$opt"
 		CMD="python word2vec_validate.py --model_file models/$input-$algo-$opt.model"
 		/usr/bin/time -f "Runtime:\t%E minutes\nCPU percentage:\t%P\nMax memory:\t%M KB" $CMD >>$LOG_FILE 2>&1

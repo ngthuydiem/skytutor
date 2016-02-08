@@ -20,11 +20,7 @@ if __name__ == "__main__":
 	logger.info("running %s", args)
 				
 	logger.info("--------------------Load Model--------------------")
-	if args.model_type == 'C-bin':		
-		model = Word2Vec.load_word2vec_format(args.model, binary=True) # C binary format
-	elif args.model_type == 'C-text':	
-		model = Word2Vec.load_word2vec_format(args.model, binary=False) # C text format
-	else: # Gensim format
+	if args.model_type == 'gensim':	# Gensim format	
 		model = Word2Vec.load(args.model)
 		
 	if args.question:
