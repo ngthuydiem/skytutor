@@ -3,7 +3,7 @@
 # %E - Elapsed real time (in [hours:]minutes:seconds)
 # %P - Percentage of the CPU that this job got, computed as (%U + %S) / %E i.e. CPU secs in user mode + CPU secs in system (kernel) mode / elapsed secs
 # %M - Maximum resident set size of the process during its lifetime, in Kbytes
-# python word2vec_optimized.py --train_data enwiki --eval_data questions-words.txt --save_path tf-models/
+python word2vec_gensim.py --train_data enwiki --eval_data questions-words.txt --save_path tf-models/
 
 # /usr/bin/time -f "Runtime:\t%E minutes\nCPU percentage:\t%P\nMax memory:\t%M KB" python word2vec_tensorflow.py --train_data enwiki --eval_data questions-words.txt --save_path tf-models/
 
