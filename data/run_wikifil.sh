@@ -1,5 +1,5 @@
-##perl wikifil.pl enwik8 > cleaned_enwiki_first_100M_words
-#perl wikifil.pl enwik9 > cleaned_enwiki_first_1B_words
-perl wikifil.pl viwiki-latest-pages-articles.xml > cleaned_viwiki_all
-#perl wikifil.pl frwiki-latest-pages-articles.xml > cleaned_frwiki_all
-#perl wikifil.pl enwiki-latest-pages-articles.xml > cleaned_enwiki_all
+input=viwiki-latest-pages-articles.xml # enwik8 enwik9 (frwiki,enwiki)viwiki-latest-pages-articles.xml 
+output=viwiki-cleaned # enwik8-cleaned enwik9-cleaned (frwiki,enwiki)viwiki-cleaned
+perl wikifil.pl $input > $output
+echo $input; head -c 500 $input; echo; ls -lh $input; echo;
+echo $output; head -c 100 $output; echo; ls -lh $output 

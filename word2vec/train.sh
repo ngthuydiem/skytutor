@@ -11,19 +11,25 @@
 
 #/usr/bin/time -f "Runtime:\t%E minutes\nCPU percentage:\t%P\nMax memory:\t%M KB" python /home/ubuntu/skytutor/word2vec/word2vec_tensorflow.py --train_data /home/ubuntu/skytutor/word2vec/enwik10 --eval_data /home/ubuntu/skytutor/word2vec/questions-words.txt --save_path /home/ubuntu/skytutor/word2vec/tf-models/
 
-LOG_FILE="log_word2vec_train.txt"
+LOG_FILE="log_train.txt"
 
 declare -a algos=("skip-gram") #"cbow")
 declare -a opts=("negative-sampling") #"hierarchical-softmax")
+num_cores=4
+#module=train_with_gensim.py
+module=train_with_tensorflow.py
 
 for algo in "${algos[@]}"
 do
 	for opt in "${opts[@]}"
 	do
-		input="enwik9_text"
-		echo "$input" "$algo" "$opt"
-		CMD="python word2vec_gensim.py --input_file $input --output_file models/$input-$algo-$opt --nthreads 16 --training_algorithm $algo --optimization_technique $opt"
+		#input="enwik9_text"
+		input="enwik8-1mb"
+		echo "START: " "$input" "$algo" "$opt"
+		CMD=`python $module --input_file ../data/$input --output_file ../models/$input-$algo-$opt --nthreads $num_cores --training_algorithm $algo --optimization_technique $opt`
+		echo $CMD
 		/usr/bin/time -f "Runtime:\t%E minutes\nCPU percentage:\t%P\nMax memory:\t%M KB" $CMD >>$LOG_FILE 2>&1
+		echo "END: " "$input" "$algo" "$opt"
 	done   
 done
         
