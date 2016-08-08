@@ -37,20 +37,25 @@ while (<>) {
     s/\]//g;
     s/&[^;]*;/ /g;          # remove URL encoded chars
 
+    s/\|[^\|]*\|//g;		# kristin: remove | text |
+    s/__[^_]*__//g;			# kristin: remove __text__
+    
     # convert to lowercase letters and spaces, spell digits
     $_=" $_ ";
     tr/A-Z/a-z/;
-    s/0/ zero /g;
-    s/1/ one /g;
-    s/2/ two /g;
-    s/3/ three /g;
-    s/4/ four /g;
-    s/5/ five /g;
-    s/6/ six /g;
-    s/7/ seven /g;
-    s/8/ eight /g;
-    s/9/ nine /g;
-    tr/a-z/ /cs;
+    s/0/ không /g;
+    s/1/ một /g;
+    s/2/ hai /g;
+    s/3/ ba /g;
+    s/4/ bốn /g;
+    s/5/ năm /g;
+    s/6/ sáu /g;
+    s/7/ bảy /g;
+    s/8/ tám /g;
+    s/9/ chín /g;    
+    
+    s/[#\-%&:;'\$*+(){}|=_\n\R\r.,“”-]//g; 	# kristin: remove special characters
+    s/\s+(?=\s)//g;		# kristin: replace multispaces with single spaces
     chop;
     print $_;
   }

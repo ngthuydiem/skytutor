@@ -1,4 +1,4 @@
-input="enwik8"
+input="enwik8-cleaned"
 size_mb=1
 num_bytes=$(($size_mb * 1024 * 1024))
 output=$input"-"$size_mb"mb"

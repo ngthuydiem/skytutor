@@ -1,5 +1,3 @@
-* Note: humor, informative, real life experience
-
 EFFICIENT TRAINING OF NEW WORD EMBEDDING MODELS
 
 # Why do you want to train a new word embedding model?
