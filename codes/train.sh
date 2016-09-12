@@ -23,8 +23,7 @@ for algo in "${algos[@]}"
 do
 	for opt in "${opts[@]}"
 	do
-		#input="enwik9_text"
-		input="enwik8-10mb"
+		input="enwik8-cleaned-10mb"
 		echo "START: " "$input" "$algo" "$opt"
 		CMD=`python $module --input_file ../data/$input --output_file ../models/$input-$algo-$opt --nthreads $num_cores --training_algorithm $algo --optimization_technique $opt`
 		echo $CMD
