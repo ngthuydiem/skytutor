@@ -17,4 +17,3 @@
 - Automatic image captioning
 - Contextual search
 
-
